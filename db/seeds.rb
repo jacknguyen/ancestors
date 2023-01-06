@@ -1,5 +1,2 @@
-require 'csv'
-
-CSV.foreach(Rails.root.join('db/nodes.csv'), headers: true) do |row|
-  CommonAncestor.create!(row.to_hash)
-end
+Rake::Task['db:seed:common_ancestors'].invoke
+Rake::Task['db:seed:birds'].invoke

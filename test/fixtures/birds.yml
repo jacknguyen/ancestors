@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  common_ancestor: root_node_1
+
+two:
+  common_ancestor: root_node_2
+
+three:
+  common_ancestor: node_4
+
+four:
+  common_ancestor: node_4
+
+five:
+  common_ancestor: node_5
+
+six:
+  common_ancestor: node_6
+
+seven:
+  common_ancestor: node_7
+
+eight:
+  common_ancestor: node_2

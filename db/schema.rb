@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_220554) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_014547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "birds", force: :cascade do |t|
+    t.bigint "common_ancestor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["common_ancestor_id"], name: "index_birds_on_common_ancestor_id"
+  end
 
   create_table "common_ancestors", force: :cascade do |t|
     t.bigint "parent_id"
     t.index ["id", "parent_id"], name: "index_common_ancestors_on_id_and_parent_id", unique: true
-    t.index ["parent_id"], name: "index_common_ancestors_on_parent_id"
   end
 
-  add_foreign_key "common_ancestors", "common_ancestors", column: "parent_id"
+  add_foreign_key "birds", "common_ancestors"
 end
